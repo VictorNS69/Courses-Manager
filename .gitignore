@@ -1,2 +1,5 @@
 target/
 courses-manager/src/target/
+courses-manager/.classpath
+courses-manager/.project
+courses-manager/.settings/*
