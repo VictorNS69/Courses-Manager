@@ -10,14 +10,11 @@ public class Course{
   private ArrayList <Student> students;
 
   public Course (int code, String name, String coordinator)  throws DataFormatException{
-    if (code == 0 || name.equals("") || name == null || coordinator.equals("") || coordinator == null)
-        throw new DataFormatException("Cannot be blank field.");
-    else {
-      this.code = code;
-      this.name = name;
-      this.coordinator = coordinator;
-      this.students = new ArrayList <Student>();
-    }
+    this.code = code;
+    this.name = name;
+    this.coordinator = coordinator;
+    this.students = new ArrayList <Student>();
+
   }
   public int getCode(){
     return this.code;
