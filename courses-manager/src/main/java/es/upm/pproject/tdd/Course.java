@@ -1,7 +1,6 @@
 package es.upm.pproject.tdd;
 
 import java.util.*;
-import java.util.zip.DataFormatException;
 
 public class Course{
   private int code;
@@ -9,7 +8,7 @@ public class Course{
   private String coordinator;
   private ArrayList <Student> students;
 
-  public Course (int code, String name, String coordinator)  throws DataFormatException{
+  public Course (int code, String name, String coordinator){
     this.code = code;
     this.name = name;
     this.coordinator = coordinator;
