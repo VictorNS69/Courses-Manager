@@ -13,18 +13,24 @@ public class Course{
     this.name = name;
     this.coordinator = coordinator;
     this.students = new ArrayList <Student>();
-
   }
   public int getCode(){
     return this.code;
   }
+  
   public String getName(){
     return this.name;
   }
+  
   public String getCoordinator(){
     return this.coordinator;
   }
+  
   public ArrayList<Student> getStudents(){
     return this.students;
+  }
+  
+  public String toString() {
+	  return "["+ this.getCode() +", "+ this.getName() + ", " + this.getCoordinator() +"]";
   }
 }

@@ -10,13 +10,20 @@ public class Student{
     this.name = name;
     this.email = email;
   }
+  
   public int getId(){
     return this.id;
   }
+  
   public String getName(){
     return this.name;
   }
+  
   public String getEmail(){
     return this.email;
+  }
+  
+  public String toString() {
+	  return "[" + this.getId() +", " + this.getName() +", "+ this.getEmail()+"]";
   }
 }
