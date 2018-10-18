@@ -18,7 +18,17 @@ public class Manager implements MyInterface{
 			for (Student s:list){
 				if (s.getId() == student.getId())
 					throw new MyException("Error: Duplicated (code) student.");
-				
+								
+				else if (student.getName().compareTo(s.getName()) == 0){
+					if (student.getId() < s.getId()){
+						list.add(list.indexOf(s), student);
+						break;
+					}		
+					else {
+						list.add(list.indexOf(s)+1, student);
+						break;
+					}		
+				}
 				else if(student.getName().compareTo(s.getName()) < 0){
 					list.add(list.indexOf(s), student);
 					break;
