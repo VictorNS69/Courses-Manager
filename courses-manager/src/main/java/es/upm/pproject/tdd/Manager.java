@@ -6,12 +6,19 @@ public class Manager implements MyInterface{
 	private ArrayList <Student> students;
 	private ArrayList <Course> courses;
 
-	public Manager(ArrayList <Student> students, ArrayList <Course> courses ){
+	public Manager(ArrayList <Student> students, ArrayList <Course> courses ) throws MyException{
+		if (students == null || courses == null)
+			throw new MyException ("Error: cannot be null lists.");
 		this.students = students;
 		this.courses = courses;
 	}
-
-	private void insertStudent(ArrayList <Student> list, Student student) throws MyException{
+	
+	/** Insert a student in an list of students if it is not listed already.
+	 * @param list
+	 * @param student
+	 * @throws MyException
+	 */
+	private void insert_Student(ArrayList <Student> list, Student student) throws MyException{
 		if (list.isEmpty())
 			list.add(student);
 		else {
@@ -41,7 +48,12 @@ public class Manager implements MyInterface{
 		}
 	}
 
-	private void insertCourse(ArrayList <Course> list, Course course) throws MyException{
+	/** Insert a course in a list of courses if it is not listed already.
+	 * @param list
+	 * @param course
+	 * @throws MyException
+	 */
+	private void insert_Course(ArrayList <Course> list, Course course) throws MyException{
 		if (list.isEmpty())
 			list.add(course);
 		else {
@@ -67,7 +79,7 @@ public class Manager implements MyInterface{
 			throw new MyException("Error: Cannot be blank field.");
 		else {
 			Course course = new Course(code, name, coordinator);
-			insertCourse(courses, course);
+			insert_Course(courses, course);
 		}
 	}
 
@@ -82,36 +94,42 @@ public class Manager implements MyInterface{
 		
 		else {
 			Student student = new Student(id, name, email);
-			insertStudent(students, student);
+			insert_Student(students, student);
 		}
 
 	}
 
 	@Override
 	public void enroll_student(int id, int course_cod) throws MyException {
-		for (Course c: this.courses) {
-			if (c.getCode() == course_cod) {}
+		Course course_f = null; 
+		Student student_f = null;
+		if (this.courses.isEmpty()) {
+			throw new MyException ("Error: Course not in the system.");
 		}
-		/*for (Course c: this.courses) {
-			if (c.getCode() == course_cod) {
-				for (Student s: c.getStudents()) {
-					if (s.getId() == id) {
-						throw new MyException ("Error: Student already in this course.");
-					}
-					else if 
-					else {
-						if (s == students.get(students.size()-1) && s.getId() != id) {
-							//si es ultimo de lista y no coincide
-							throw new MyException("Error: Student not in the system.");
-						}
-					}	
-				}
+		for (Course c: this.courses) {
+			if (this.courses.get(this.courses.size()-1).getCode() < course_cod) {
+				throw new MyException ("Error: Course not in the system.");
 			}
-			else if (c == courses.get(courses.size()-1) && c.getCode() != course_cod) {
-					//si es ultimo y no coincide
-					throw new MyException ("Error: this course is not in the system.");
+			else if (c.getCode() == course_cod) {
+				course_f = c;
 			}
-		}*/
+		}
+		for (Student s:this.students) {
+			if (s.getId() == id ) {
+				student_f = s;
+				break;
+			}
+		}
+		if (student_f == null) {
+			throw new MyException ("Error: Student not in the system.");
+		}
+		if (course_f.getStudents().contains(student_f)) {
+			throw new MyException ("Error: Student already in this course.");
+		}
+		if (course_f.getStudents().size() > 50) {
+			throw new MyException ("Error: Max capacity in this course (50).");
+		}
+		insert_Student(course_f.getStudents(), student_f);
 	}
 
 
@@ -135,12 +153,11 @@ public class Manager implements MyInterface{
 
 	@Override
 	public ArrayList<Student> list_users() {
-		return null;//this.courses;
+		return this.students;
 	}
 
 	@Override
 	public ArrayList<Course> list_courses() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.courses;
 	}
 }

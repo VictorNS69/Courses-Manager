@@ -7,7 +7,7 @@ public class Course{
   private String name;
   private String coordinator;
   private ArrayList <Student> students;
-
+  
   public Course (int code, String name, String coordinator){
     this.code = code;
     this.name = name;
