@@ -5,9 +5,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
 public class New_Student_Test{
-  private ArrayList <Student> students = new ArrayList <Student>();
-  private ArrayList <Course> courses = new ArrayList <Course>();
-  private Manager manager = new Manager(students, courses);
+	private ArrayList <Student> students;
+	private ArrayList <Course>courses;
+	private Manager manager;
+	
+	@BeforeEach
+	private void init() throws MyException {
+		this.students = new ArrayList <Student>();
+		this.courses = new ArrayList <Course>();
+		this.manager = new Manager(students, courses);
+	}
   
   @Test
   public void new_student_ok_empty_list_test() throws MyException{
@@ -96,5 +103,21 @@ public class New_Student_Test{
 	  assertThrows(Exception.class, ()->{
     	  manager.new_student(111, "Victor Nieves", "victornieves");
         });
+  }
+  
+  @Test
+  public void new_student_null_c() throws MyException{
+	  assertThrows(Exception.class, ()->{
+		this.manager = new Manager(this.students, null);
+		manager.new_student(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+	  });
+  }
+  
+  @Test
+  public void new_student_null_s() throws MyException{
+	  assertThrows(Exception.class, ()->{
+		this.manager = new Manager(null, this.courses);
+		manager.new_student(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+	  });
   }
 }
