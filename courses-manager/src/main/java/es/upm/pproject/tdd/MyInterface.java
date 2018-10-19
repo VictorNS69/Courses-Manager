@@ -66,19 +66,19 @@ public interface MyInterface{
 	 * by the identification number. If the course code does not exist the system must 
 	 * throw an exception.
 	 * @param code
-	 * @return
+	 * @return ArrayList <Student> 
 	 * @throws Exception
 	 */
 	public ArrayList <Student> list_students_in_course(int code) throws Exception;
 	
 	/** The list of all users registered in the system, including its name, email 
 	 * and identification number, can be obtained. The list must be ordered by its name
-	 * @return
+	 * @return ArrayList <Student> 
 	 */
 	public ArrayList <Student> list_users();
 	
 	/** The list of all courses, sorted by their code, can be obtained.
-	 * @return
+	 * @return ArrayList <Course> 
 	 */
 	public ArrayList <Course> list_courses();
 }
