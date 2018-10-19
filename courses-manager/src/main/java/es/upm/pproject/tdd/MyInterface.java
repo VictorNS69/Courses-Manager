@@ -44,10 +44,41 @@ public interface MyInterface{
 	 */
 	public void enroll_student(int id, int course_cod) throws Exception;
 	
-	
+	/** The student can cancel its enrollment in a course. The system must 
+	 * check if the student is registered in the system and matriculated 
+	 * in the course and throws an exception when it does not happen.
+	 * @param student
+	 * @param course
+	 * @throws Exception
+	 */
 	public void cancel (Student student, Course course) throws Exception;
+	
+	/** A course can be restarted and this operation must remove all students
+	 *  matriculated in the course. If the course code does not exist the system 
+	 *  must throw an exception. 
+	 * @param course
+	 * @throws Exception
+	 */
 	public void restarted (Course course) throws Exception;
+	
+	/** Given a course code, the system must return the list of matriculated students, 
+	 * returning its identification number, name and surname. The list must be sorted 
+	 * by the identification number. If the course code does not exist the system must 
+	 * throw an exception.
+	 * @param code
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList <Student> list_students_in_course(int code) throws Exception;
+	
+	/** The list of all users registered in the system, including its name, email 
+	 * and identification number, can be obtained. The list must be ordered by its name
+	 * @return
+	 */
 	public ArrayList <Student> list_users();
+	
+	/** The list of all courses, sorted by their code, can be obtained.
+	 * @return
+	 */
 	public ArrayList <Course> list_courses();
 }
