@@ -20,20 +20,20 @@ public class New_Student_Test{
   @Test
   public void new_student_ok_not_empty_list_1_test() throws MyException{
       manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-      manager.new_student(200300, "Alejandro Carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
+      manager.new_student(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
       assertEquals(2, this.students.size());
       Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-      Student s2 = new Student(200300, "Alejandro Carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
+      Student s2 = new Student(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
       assertEquals (s2.toString(), this.students.get(0).toString());
       assertEquals (s1.toString(), this.students.get(1).toString());
   }
   
   @Test
   public void new_student_ok_not_empty_list_2_test() throws MyException{
-      manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.new_student(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.new_student(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
       assertEquals(2, this.students.size());
-      Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      Student s1 = new Student(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       Student s2 = new Student(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
       assertEquals (s1.toString(), this.students.get(0).toString());
       assertEquals (s2.toString(), this.students.get(1).toString());

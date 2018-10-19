@@ -19,7 +19,7 @@ public class Manager implements MyInterface{
 				if (s.getId() == student.getId())
 					throw new MyException("Error: Duplicated (code) student.");
 								
-				else if (student.getName().compareTo(s.getName()) == 0){
+				else if (student.getName().toLowerCase().compareTo(s.getName().toLowerCase()) == 0){
 					if (student.getId() < s.getId()){
 						list.add(list.indexOf(s), student);
 						break;
@@ -29,11 +29,11 @@ public class Manager implements MyInterface{
 						break;
 					}		
 				}
-				else if(student.getName().compareTo(s.getName()) < 0){
+				else if(student.getName().toLowerCase().compareTo(s.getName().toLowerCase()) < 0){
 					list.add(list.indexOf(s), student);
 					break;
 				}
-				else if(list.get(list.size()-1).getName().compareTo(student.getName()) < 0) {
+				else if(list.get(list.size()-1).getName().toLowerCase().compareTo(student.getName().toLowerCase()) < 0) {
 					list.add(student);
 					break;
 				}
@@ -89,9 +89,31 @@ public class Manager implements MyInterface{
 
 	@Override
 	public void enroll_student(int id, int course_cod) throws MyException {
-		// TODO Auto-generated method stub
-
+		for (Course c: this.courses) {
+			if (c.getCode() == course_cod) {}
+		}
+		/*for (Course c: this.courses) {
+			if (c.getCode() == course_cod) {
+				for (Student s: c.getStudents()) {
+					if (s.getId() == id) {
+						throw new MyException ("Error: Student already in this course.");
+					}
+					else if 
+					else {
+						if (s == students.get(students.size()-1) && s.getId() != id) {
+							//si es ultimo de lista y no coincide
+							throw new MyException("Error: Student not in the system.");
+						}
+					}	
+				}
+			}
+			else if (c == courses.get(courses.size()-1) && c.getCode() != course_cod) {
+					//si es ultimo y no coincide
+					throw new MyException ("Error: this course is not in the system.");
+			}
+		}*/
 	}
+
 
 	@Override
 	public void cancel(Student student, Course course) throws MyException {
