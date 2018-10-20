@@ -14,6 +14,7 @@ public class Course{
     this.coordinator = coordinator;
     this.students = new ArrayList <Student>();
   }
+  
   public int getCode(){
     return this.code;
   }
