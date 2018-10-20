@@ -99,7 +99,7 @@ public class Enroll_Student_Test {
 	}
 	
 	@Test
-	public void enroll_student_null_c() throws MyException{
+	public void enroll_student_null_c_test() throws MyException{
 		assertThrows(Exception.class, ()->{
 			this.manager = new Manager(this.students, null);
 			manager.new_course(1, "Programming Project", "Guillermo");
@@ -109,7 +109,7 @@ public class Enroll_Student_Test {
 	 }
 	  
 	 @Test
-	 public void enroll_student_null_s() throws MyException{
+	 public void enroll_student_null_s_test() throws MyException{
 		 assertThrows(Exception.class, ()->{
 			 this.manager = new Manager(null, this.courses);
 			 manager.new_course(1, "Programming Project", "Guillermo");

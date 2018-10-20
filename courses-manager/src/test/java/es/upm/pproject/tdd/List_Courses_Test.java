@@ -39,7 +39,7 @@ public class List_Courses_Test{
 	}
 	
 	@Test
-	  public void list_courses_null_c() throws MyException{
+	  public void list_courses_null_c_test() throws MyException{
 		  assertThrows(Exception.class, ()->{
 			this.manager = new Manager(this.students, null);
 			manager.new_course(1, "Programming Project", "Guillermo");
@@ -48,7 +48,7 @@ public class List_Courses_Test{
 	  }
 	  
 	  @Test
-	  public void list_courses_null_s() throws MyException{
+	  public void list_courses_null_s_test() throws MyException{
 		  assertThrows(Exception.class, ()->{
 			this.manager = new Manager(null, this.courses);
 			manager.new_course(1, "Programming Project", "Guillermo");

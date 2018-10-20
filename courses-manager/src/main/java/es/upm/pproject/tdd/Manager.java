@@ -74,6 +74,7 @@ public class Manager implements MyInterface{
 		}
 	}
 
+	@Override
 	public void new_course(int code, String name, String coordinator) throws MyException{
 		if (code == 0 || name.equals("") || coordinator.equals(""))
 			throw new MyException("Error: Cannot be blank field.");
