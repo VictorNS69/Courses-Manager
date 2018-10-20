@@ -55,6 +55,18 @@ public class New_Student_Test{
       assertEquals (s2.toString(), this.students.get(1).toString());
       assertEquals (s1.toString(), this.students.get(0).toString());
   }
+  
+  @Test
+  public void new_student_ok_not_empty_list_4_test() throws MyException{
+	  assertThrows(Exception.class, ()->{
+		  manager.new_student(1, "a", "test@tst.com");
+		  manager.new_student(2, "b", "test@tst.com");
+		  manager.new_student(3, "c", "test@tst.com");
+		  manager.new_student(2, "b", "test@tst.com");
+	  });
+	  
+  }
+  
   @Test
   public void new_student_duplicated_test() {
 	  assertThrows(Exception.class, ()->{
