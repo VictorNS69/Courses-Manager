@@ -5,3 +5,4 @@ courses-manager/.project
 courses-manager/.settings/*
 courses-manager/bin/
 *Main.java
+courses-manager/backup.txt
