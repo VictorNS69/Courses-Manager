@@ -139,7 +139,7 @@ public class Manager implements MyInterface{
 		if (this.students.isEmpty() || this.courses.isEmpty()) {
 			throw new MyException("Error: Empty list.");
 		}
-		if (this.students == null || this.courses == null) {
+		if (this.students == null || this.courses == null || student == null || course == null) {
 			throw new MyException("Error: Cannot be null.");
 		}
 		if (this.students.contains(student)) {
