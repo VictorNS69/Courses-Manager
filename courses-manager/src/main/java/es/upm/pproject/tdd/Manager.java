@@ -136,8 +136,28 @@ public class Manager implements MyInterface{
 
 	@Override
 	public void cancel(Student student, Course course) throws MyException {
-		// TODO Auto-generated method stub
-
+		if (this.students.isEmpty() || this.courses.isEmpty()) {
+			throw new MyException("Error: Empty list.");
+		}
+		if (this.students == null || this.courses == null) {
+			throw new MyException("Error: Cannot be null.");
+		}
+		if (this.students.contains(student)) {
+			if (this.courses.contains(course)) {
+				if (this.courses.get(this.courses.indexOf(course)).getStudents().contains(student)) {
+					this.courses.get(this.courses.indexOf(course)).getStudents().remove(student);
+				}
+				else {
+					throw new MyException("Error: This student is not matriculated in this course.");
+				}
+			}
+			else {
+				throw new MyException("Error: Course not in the system.");
+			}
+		}
+		else {
+			throw new MyException("Error: Student not in the system.");
+		}
 	}
 
 	@Override
