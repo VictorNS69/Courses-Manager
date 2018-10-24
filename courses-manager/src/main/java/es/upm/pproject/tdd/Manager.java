@@ -169,7 +169,24 @@ public class Manager implements MyInterface{
 	@Override
 	public ArrayList<Student> list_students_in_course(int code) throws MyException {
 		// TODO Auto-generated method stub
-		return null;
+		Course courses_R = null;
+		ArrayList<Student> s;
+		if (code == 0)
+			throw new MyException ("Error: Invalid code");
+		if (this.courses.isEmpty())
+			throw new MyException ("Error: Course_List is empty");
+		for (Course c:this.courses) {
+			if (c.getCode()==code)
+			{
+				courses_R=c;
+				break;
+			}
+			
+		}
+		if (courses_R==null)
+			throw new MyException ("Error: Course not in the system");
+		s = courses_R.getStudents();
+		return s;
 	}
 
 	@Override
