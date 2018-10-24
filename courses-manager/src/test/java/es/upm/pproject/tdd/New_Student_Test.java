@@ -116,20 +116,4 @@ public class New_Student_Test{
     	  manager.new_student(111, "Victor Nieves", "victornieves");
         });
   }
-  
-  @Test
-  public void new_student_null_c_test() throws MyException{
-	  assertThrows(Exception.class, ()->{
-		this.manager = new Manager(this.students, null);
-		manager.new_student(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-	  });
-  }
-  
-  @Test
-  public void new_student_null_s_test() throws MyException{
-	  assertThrows(Exception.class, ()->{
-		this.manager = new Manager(null, this.courses);
-		manager.new_student(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-	  });
-  }
 }

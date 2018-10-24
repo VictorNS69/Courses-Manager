@@ -97,24 +97,4 @@ public class Enroll_Student_Test {
 	    	  manager.enroll_student(1, 1);
 	        });
 	}
-	
-	@Test
-	public void enroll_student_null_c_test() throws MyException{
-		assertThrows(Exception.class, ()->{
-			this.manager = new Manager(this.students, null);
-			manager.new_course(1, "Programming Project", "Guillermo");
-			manager.new_student(1, "victor nieves", "example@test.com");
-			manager.enroll_student(1, 1);
-		});
-	 }
-	  
-	 @Test
-	 public void enroll_student_null_s_test() throws MyException{
-		 assertThrows(Exception.class, ()->{
-			 this.manager = new Manager(null, this.courses);
-			 manager.new_course(1, "Programming Project", "Guillermo");
-			 manager.new_student(1, "victor nieves", "example@test.com");
-			 manager.enroll_student(1, 1);
-		 });
-	}
 }

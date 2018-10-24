@@ -41,23 +41,4 @@ public class List_Users_Test {
 		assertEquals(this.students.toString(), s.toString());
 		assertEquals(20,s.size());
 	}
-	@Test
-	public void list_users_null_C_list_test() throws MyException {
-		
-		assertThrows(Exception.class, ()->{
-			this.manager = new Manager(this.students,null);
-			manager.new_student(1, "victor nieves", "victor.nieves@alumnos.upm.es");
-			ArrayList <Student> s = manager.list_users();
-		});
-		}
-	@Test
-public void list_users_null_S_list_test() throws MyException {
-		
-		assertThrows(Exception.class, ()->{
-			this.manager = new Manager(null,this.courses);
-			manager.new_student(1, "victor nieves", "victor.nieves@alumnos.upm.es");
-			ArrayList <Student> s = manager.list_users();
-		});
-		}
-	
 }

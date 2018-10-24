@@ -74,20 +74,4 @@ public class New_Course_Test{
 			manager.new_course(10, "Programming Project", "");
 		});
 	}
-
-	@Test
-	public void new_course_null_c() throws MyException{
-		assertThrows(Exception.class, ()->{
-			this.manager = new Manager(this.students, null);
-			manager.new_course(10, "Programming Project", "");
-		});
-	}
-
-	@Test
-	public void new_course_null_s() throws MyException{
-		assertThrows(Exception.class, ()->{
-			this.manager = new Manager(null, this.courses);
-			manager.new_course(10, "Programming Project", "");
-		});
-	}
 }
