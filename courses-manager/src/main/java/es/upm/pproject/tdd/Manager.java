@@ -163,7 +163,17 @@ public class Manager implements MyInterface{
 	@Override
 	public void restarted(Course course) throws MyException {
 		// TODO Auto-generated method stub
-
+		if (course.toString()==null)
+			throw new MyException("Error: has not entered course");
+		if(this.courses.isEmpty())
+			throw new MyException("Error:Course list is empty");
+		if(this.courses.contains(course))
+		{
+			while(this.courses.get(this.courses.indexOf(course)).getStudents().size()!=0)
+				cancel(this.courses.get(this.courses.indexOf(course)).getStudents().get(0), this.courses.get(this.courses.indexOf(course)));
+		}
+		else
+			throw new MyException ("Error: Course not exist");
 	}
 
 	@Override
