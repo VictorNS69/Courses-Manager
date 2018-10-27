@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
-public class New_Student_Test{
+public class NewStudentTest{
 	private ArrayList <Student> students;
 	private ArrayList <Course>courses;
 	private Manager manager;
@@ -18,7 +18,7 @@ public class New_Student_Test{
   
   @Test
   public void new_student_ok_empty_list_test() throws MyException{
-      manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(1, this.students.size());
       Student s = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals (s.toString(), this.students.get(0).toString());
@@ -26,8 +26,8 @@ public class New_Student_Test{
   
   @Test
   public void new_student_ok_not_empty_list_1_test() throws MyException{
-      manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-      manager.new_student(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
+      manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
       assertEquals(2, this.students.size());
       Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       Student s2 = new Student(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
@@ -37,8 +37,8 @@ public class New_Student_Test{
   
   @Test
   public void new_student_ok_not_empty_list_2_test() throws MyException{
-      manager.new_student(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-      manager.new_student(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
+      manager.newStudent(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
       assertEquals(2, this.students.size());
       Student s1 = new Student(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       Student s2 = new Student(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
@@ -47,8 +47,8 @@ public class New_Student_Test{
   }
   
   public void new_student_ok_not_empty_list_3_test() throws MyException{
-      manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-      manager.new_student(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(2, this.students.size());
       Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       Student s2 = new Student(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
@@ -59,10 +59,10 @@ public class New_Student_Test{
   @Test
   public void new_student_ok_not_empty_list_4_test() throws MyException{
 	  assertThrows(Exception.class, ()->{
-		  manager.new_student(1, "a", "test@tst.com");
-		  manager.new_student(2, "b", "test@tst.com");
-		  manager.new_student(3, "c", "test@tst.com");
-		  manager.new_student(2, "b", "test@tst.com");
+		  manager.newStudent(1, "a", "test@tst.com");
+		  manager.newStudent(2, "b", "test@tst.com");
+		  manager.newStudent(3, "c", "test@tst.com");
+		  manager.newStudent(2, "b", "test@tst.com");
 	  });
 	  
   }
@@ -70,50 +70,50 @@ public class New_Student_Test{
   @Test
   public void new_student_duplicated_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
-          manager.new_student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+    	  manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+          manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
         });
   }
   
   @Test
   public void new_student_blank_id_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(0, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+    	  manager.newStudent(0, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
         });
   }
   
   @Test
   public void new_student_blank_name_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(100, "", "victor.nieves.sanchez@alumnos.upm.es");
+    	  manager.newStudent(100, "", "victor.nieves.sanchez@alumnos.upm.es");
         });
   }
   
   @Test
   public void new_student_blank_email_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(10, "Victor Nieves", "");
+    	  manager.newStudent(10, "Victor Nieves", "");
         });
   }
   
   @Test
   public void new_student_wrong_email_1_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(10, "Victor Nieves", "victor.nieves.sanchez.alumnos.upm.es");
+    	  manager.newStudent(10, "Victor Nieves", "victor.nieves.sanchez.alumnos.upm.es");
         });
   }
   
   @Test
   public void new_student_wrong_email_2_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es.");
+    	  manager.newStudent(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es.");
         });
   }
   
   @Test
   public void new_student_wrong_email_3_test() {
 	  assertThrows(Exception.class, ()->{
-    	  manager.new_student(111, "Victor Nieves", "victornieves");
+    	  manager.newStudent(111, "Victor Nieves", "victornieves");
         });
   }
 }

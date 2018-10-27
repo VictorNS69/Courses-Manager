@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
-public class List_Courses_Test{
+public class ListCoursesTest{
 	private List <Student> students;
 	private List <Course> courses;
 	private Manager manager;
@@ -18,23 +18,23 @@ public class List_Courses_Test{
 
 	@Test
 	public void list_courses_empty_test() {
-		List <Course> c = manager.list_courses();
+		List <Course> c = manager.listCourses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
 	@Test
 	public void list_courses_ok_1_test() throws MyException {
-		manager.new_course(1, "Programming Project", "Guillermo");
-		List <Course> c = manager.list_courses();
+		manager.newCourse(1, "Programming Project", "Guillermo");
+		List <Course> c = manager.listCourses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
 	@Test
 	public void list_courses_ok_2_test() throws MyException{
 		for (int i=1; i < 30;i++) {
-			manager.new_course(i, "name", "coordinator");
+			manager.newCourse(i, "name", "coordinator");
 		}
-		List <Course> c = manager.list_courses();
+		List <Course> c = manager.listCourses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 }

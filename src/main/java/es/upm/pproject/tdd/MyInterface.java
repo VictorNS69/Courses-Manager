@@ -15,7 +15,7 @@ public interface MyInterface{
 	 * @param coordinator
 	 * @throws Exception
 	 */
-	public void new_course(int code, String name, String coordinator) throws Exception;
+	public void newCourse(int code, String name, String coordinator) throws Exception;
 
 	/**A new student can be registered. The following checks must be done before 
 	 * registering the student an a proper exception must be thrown when they are not 
@@ -29,7 +29,7 @@ public interface MyInterface{
 	 * @param email
 	 * @throws Exception
 	 */
-	public void new_student(int id, String name, String email) throws Exception;
+	public void newStudent(int id, String name, String email) throws Exception;
 	
 	/**The system can enroll a student in a course, by using the identification number 
 	 * of the student and the course code. The following restrictions must be checked 
@@ -42,7 +42,7 @@ public interface MyInterface{
 	 * @param course_cod
 	 * @throws Exception
 	 */
-	public void enroll_student(int id, int course_cod) throws Exception;
+	public void enrollStudent(int id, int course_cod) throws Exception;
 	
 	/** The student can cancel its enrollment in a course. The system must 
 	 * check if the student is registered in the system and matriculated 
@@ -69,16 +69,16 @@ public interface MyInterface{
 	 * @return List <Student> 
 	 * @throws Exception
 	 */
-	public List <Student> list_students_in_course(int code) throws Exception;
+	public List <Student> listStudentsInCourse(int code) throws Exception;
 	
 	/** The list of all users registered in the system, including its name, email 
 	 * and identification number, can be obtained. The list must be ordered by its name
 	 * @return List <Student> 
 	 */
-	public List <Student> list_users();
+	public List <Student> listUsers();
 	
 	/** The list of all courses, sorted by their code, can be obtained.
 	 * @return List <Course> 
 	 */
-	public List <Course> list_courses();
+	public List <Course> listCourses();
 }

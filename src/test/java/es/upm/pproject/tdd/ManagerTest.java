@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
-public class Manager_Test {
+public class ManagerTest {
 	private ArrayList <Student> students;
 	private ArrayList <Course>courses;
 	private Manager manager;
