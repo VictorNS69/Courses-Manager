@@ -6,7 +6,7 @@ public class Course{
   private int code;
   private String name;
   private String coordinator;
-  private ArrayList <Student> students;
+  private List <Student> students;
   
   public Course (int code, String name, String coordinator){
     this.code = code;
@@ -27,7 +27,7 @@ public class Course{
     return this.coordinator;
   }
   
-  public ArrayList<Student> getStudents(){
+  public List<Student> getStudents(){
     return this.students;
   }
   

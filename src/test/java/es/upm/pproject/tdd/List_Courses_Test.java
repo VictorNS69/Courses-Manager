@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
 public class List_Courses_Test{
-	private ArrayList <Student> students;
-	private ArrayList <Course> courses;
+	private List <Student> students;
+	private List <Course> courses;
 	private Manager manager;
 
 	@BeforeEach
@@ -18,14 +18,14 @@ public class List_Courses_Test{
 
 	@Test
 	public void list_courses_empty_test() {
-		ArrayList <Course> c = manager.list_courses();
+		List <Course> c = manager.list_courses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
 	@Test
 	public void list_courses_ok_1_test() throws MyException {
 		manager.new_course(1, "Programming Project", "Guillermo");
-		ArrayList <Course> c = manager.list_courses();
+		List <Course> c = manager.list_courses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
@@ -34,7 +34,7 @@ public class List_Courses_Test{
 		for (int i=1; i < 30;i++) {
 			manager.new_course(i, "name", "coordinator");
 		}
-		ArrayList <Course> c = manager.list_courses();
+		List <Course> c = manager.list_courses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 }

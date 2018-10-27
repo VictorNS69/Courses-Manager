@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Restarted_Test {
 
-	private ArrayList <Student> students;
-	private ArrayList <Course> courses;
+	private List <Student> students;
+	private List <Course> courses;
 	private Manager manager;
 	
 	@BeforeEach

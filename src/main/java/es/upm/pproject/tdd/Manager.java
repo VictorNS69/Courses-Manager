@@ -3,10 +3,10 @@ package es.upm.pproject.tdd;
 import java.util.*;
 
 public class Manager implements MyInterface{
-	private ArrayList <Student> students;
-	private ArrayList <Course> courses;
+	private List <Student> students;
+	private List <Course> courses;
 
-	public Manager(ArrayList <Student> students, ArrayList <Course> courses ) throws MyException{
+	public Manager(List <Student> students, List <Course> courses ) throws MyException{
 		if (students == null || courses == null)
 			throw new MyException ("Error: cannot be null lists.");
 		this.students = students;
@@ -18,7 +18,7 @@ public class Manager implements MyInterface{
 	 * @param student
 	 * @throws MyException
 	 */
-	private void insert_Student(ArrayList <Student> list, Student student) throws MyException{
+	private void insert_Student(List <Student> list, Student student) throws MyException{
 		if (list.isEmpty())
 			list.add(student);
 		else {
@@ -53,7 +53,7 @@ public class Manager implements MyInterface{
 	 * @param course
 	 * @throws MyException
 	 */
-	private void insert_Course(ArrayList <Course> list, Course course) throws MyException{
+	private void insert_Course(List <Course> list, Course course) throws MyException{
 		if (list.isEmpty())
 			list.add(course);
 		else {
@@ -177,10 +177,10 @@ public class Manager implements MyInterface{
 	}
 
 	@Override
-	public ArrayList<Student> list_students_in_course(int code) throws MyException {
+	public List<Student> list_students_in_course(int code) throws MyException {
 		// TODO Auto-generated method stub
 		Course courses_R = null;
-		ArrayList<Student> s;
+		List<Student> s;
 		if (code == 0)
 			throw new MyException ("Error: Invalid code");
 		if (this.courses.isEmpty())
@@ -200,12 +200,12 @@ public class Manager implements MyInterface{
 	}
 
 	@Override
-	public ArrayList<Student> list_users() {
+	public List<Student> list_users() {
 		return this.students;
 	}
 
 	@Override
-	public ArrayList<Course> list_courses() {
+	public List<Course> list_courses() {
 		return this.courses;
 	}
 }

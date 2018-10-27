@@ -6,8 +6,8 @@ import java.util.*;
 
 public class List_Students_In_Course_Test {
 
-	private ArrayList <Student> students;
-	private ArrayList <Course> courses;
+	private List <Student> students;
+	private List <Course> courses;
 	private Manager manager;
 	
 	
@@ -22,7 +22,7 @@ public class List_Students_In_Course_Test {
 		manager.new_course(1, "Programming Project", "Guillermo");
 		
 		assertThrows(Exception.class, ()->{
-		ArrayList <Student> s = manager.list_students_in_course(0);
+		List <Student> s = manager.list_students_in_course(0);
 		});
 		
 	}
@@ -31,7 +31,7 @@ public class List_Students_In_Course_Test {
 		manager.new_course(1, "Programming Project", "Guillermo");
 		
 		assertThrows(Exception.class, ()->{
-		ArrayList <Student> s = manager.list_students_in_course(2);
+		List <Student> s = manager.list_students_in_course(2);
 		});
 	}
 	@Test
@@ -39,17 +39,17 @@ public class List_Students_In_Course_Test {
 		manager.new_course(1, "Programming Project", "Guillermo");
 		manager.new_student(1, "Alejandro Carmona", "alejandro@alumnos.upm.es");
 		manager.enroll_student(1, 1);
-		ArrayList <Student> ls = new ArrayList <Student> ();
+		List <Student> ls = new ArrayList <Student> ();
 		Student s1 = new Student (1, "Alejandro Carmona", "alejandro@alumnos.upm.es");
 		ls.add(s1);
-		ArrayList <Student> s = manager.list_students_in_course(1);
+		List <Student> s = manager.list_students_in_course(1);
 		assertEquals(ls.toString(), s.toString());
 		assertEquals(1,s.size());
 	}
 	@Test
 	public void code_is_in_course_list_empty_test() throws MyException {
 		manager.new_course(1, "programing Project", "Guilleromo");
-		ArrayList <Student> s = manager.list_students_in_course(1);
+		List <Student> s = manager.list_students_in_course(1);
 		assertEquals(this.students.toString(), s.toString());
 		assertEquals(0, s.size());
 	}
@@ -72,7 +72,7 @@ public class List_Students_In_Course_Test {
 		
 		manager.enroll_student(3, 3);
 
-		ArrayList <Student> ls1 = new ArrayList <Student> (), ls2 = new ArrayList <Student> (), ls3 = new ArrayList <Student> ();
+		List <Student> ls1 = new ArrayList <Student> (), ls2 = new ArrayList <Student> (), ls3 = new ArrayList <Student> ();
 		Student s1 = new Student (1, "Alejandro Carmona", "alejandro@alumnos.upm.es");
 		Student s2 = new Student (2, "Victor Nieves", "victor@alumnos.upm.es");
 		Student s3 = new Student (3, "Danilo Morgera", "danilo@alumnos.upm.es");
@@ -87,15 +87,15 @@ public class List_Students_In_Course_Test {
 		//students list course 3
 		ls3.add(s3);
 		
-		ArrayList <Student> st = manager.list_students_in_course(1);
+		List <Student> st = manager.list_students_in_course(1);
 		assertEquals(ls1.toString(), st.toString());
 		assertEquals(2, st.size());
 		
-		ArrayList <Student> st1 = manager.list_students_in_course(2);
+		List <Student> st1 = manager.list_students_in_course(2);
 		assertEquals(ls2.toString(), st1.toString());
 		assertEquals(3, st1.size());
 		
-		ArrayList <Student> st2 = manager.list_students_in_course(3);
+		List <Student> st2 = manager.list_students_in_course(3);
 		assertEquals(ls3.toString(), st2.toString());
 		assertEquals(1, st2.size());
 	}
