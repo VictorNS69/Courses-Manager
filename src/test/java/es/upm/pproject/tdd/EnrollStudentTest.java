@@ -3,6 +3,8 @@ package es.upm.pproject.tdd;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
+import es.upm.pproject.tdd.exceptions.*;
+
 
 public class EnrollStudentTest {
 	private ArrayList <Student> students;
@@ -19,14 +21,15 @@ public class EnrollStudentTest {
 	}
 	
 	@BeforeEach
-	private void init() throws MyException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
 	
 	@Test
-	public void enroll_student_max_capacity_test() throws MyException {
+	public void enroll_student_max_capacity_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		String name = Character.toString(rndChar());
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		for (int i = 1; i <= 51; i++) {
@@ -34,14 +37,15 @@ public class EnrollStudentTest {
 			manager.newStudent(i, name, "example@test.com");
 			manager.enrollStudent(i, 1);
 		}
-		assertThrows(MyException.class, ()->{
+		assertThrows(MaxCapacityException.class, ()->{
 	    	  manager.newStudent(52, "Victor Nieves", "victor.nieves@test.com");
 	    	  manager.enrollStudent(52, 1);
 	        });
 	}
 	
 	@Test
-	public void enroll_student_ok_1_test() throws MyException {
+	public void enroll_student_ok_1_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newStudent(1, "victor nieves", "example@test.com");
 		manager.enrollStudent(1, 1);
@@ -50,7 +54,8 @@ public class EnrollStudentTest {
 	}
 	
 	@Test
-	public void enroll_student_ok_2_test() throws MyException {
+	public void enroll_student_ok_2_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newStudent(1, "victor nieves", "example@test.com");
 		manager.enrollStudent(1, 1);
@@ -61,7 +66,8 @@ public class EnrollStudentTest {
 	}
 	
 	@Test
-	public void enroll_student_ok_3_test() throws MyException {
+	public void enroll_student_ok_3_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		String name = Character.toString(rndChar());
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		for (int i = 1; i <= 26; i++) {
@@ -73,28 +79,31 @@ public class EnrollStudentTest {
 	}
 	
 	@Test
-	public void enroll_student_duplicated_student_test() throws MyException{
+	public void enroll_student_duplicated_student_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newStudent(1, "victor nieves", "example@test.com");
 		manager.enrollStudent(1, 1);
-		assertThrows(MyException.class, ()->{
+		assertThrows(AlreadyInTheSystemException.class, ()->{
 	    	  manager.enrollStudent(1, 1);
-	        });
+        });
 	}
 	
 	@Test
-	public void enroll_student_student_not_in_system_test() throws MyException {
+	public void enroll_student_student_not_in_system_test() throws NotInTheSystemException, AlreadyInTheSystemException,
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "Programming Project", "Guillermo");
-		assertThrows(MyException.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 	    	  manager.enrollStudent(1, 1);
-	        });
+        });
 	}
 	
 	@Test
-	public void enroll_student_course_not_in_system_test() throws MyException {
+	public void enroll_student_course_not_in_system_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {
 		manager.newStudent(1, "victor nieves", "example@test.com");
-		assertThrows(MyException.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 	    	  manager.enrollStudent(1, 1);
-	        });
+        });
 	}
 }

@@ -1,7 +1,9 @@
 package es.upm.pproject.tdd;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
+import es.upm.pproject.tdd.exceptions.*;
 
 public class RestartedTest {
 
@@ -10,7 +12,7 @@ public class RestartedTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void init() throws MyException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);
@@ -18,32 +20,33 @@ public class RestartedTest {
 	}
 	
 	@Test
-	public void CourseNotEnteredTest () throws MyException {
+	public void CourseNotEnteredTest () throws InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "PP", "Guillermo");
-		assertThrows(Exception.class, ()->{
+		assertThrows(InvalidInputArgumentException.class, ()->{
 			manager.restarted(null);
-			});
+		});
 	}
 	
 	@Test
-	public void CourseNotInListTest () throws MyException {
+	public void CourseNotInListTest () throws InvalidInputArgumentException, DuplicatedException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(2, "PP", "Guillermo");
-		assertThrows(Exception.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 			manager.restarted(c);
-			});
+		});
 	}
 	
 	@Test
-	public void CourseListEmptyTest () throws MyException {
+	public void CourseListEmptyTest () {
 		Course c = new Course (1, "PP", "Guillermo");
-		assertThrows(Exception.class, ()->{
+		assertThrows(EmptyListException.class, ()->{
 			manager.restarted(c);
 			});
 	}
 	
 	@Test
-	public void CourseInListAndStudentsListIsEmptyTest () throws MyException {
+	public void CourseInListAndStudentsListIsEmptyTest () throws InvalidInputArgumentException, DuplicatedException,
+					EmptyListException, NotInTheSystemException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(1, "PP", "Guillermo");
 		manager.restarted(this.courses.get(0));
@@ -52,7 +55,8 @@ public class RestartedTest {
 		assertEquals(0,this.students.size());
 	}
 	@Test
-	public void CourseInListAndStudentsListNotEmptyTest () throws MyException {
+	public void CourseInListAndStudentsListNotEmptyTest () throws NotInTheSystemException, AlreadyInTheSystemException, 
+				MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(1, "PP", "Guillermo");
 		manager.newStudent(1, "Alejandro Carmona", "alejandro@alumnos.upm.es");

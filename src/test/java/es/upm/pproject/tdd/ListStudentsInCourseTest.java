@@ -1,7 +1,9 @@
 package es.upm.pproject.tdd;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
+import es.upm.pproject.tdd.exceptions.*;
 
 
 public class ListStudentsInCourseTest {
@@ -12,30 +14,35 @@ public class ListStudentsInCourseTest {
 	
 	
 	@BeforeEach
-	public void init() throws MyException {
+	public void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);
 	}
+	
 	@Test
-	public void code_is_zero_test() throws MyException {
+	public void code_is_zero_test() throws InvalidInputArgumentException, 
+					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		
 		assertThrows(Exception.class, ()->{
-		List <Student> s = manager.listStudentsInCourse(0);
+			List <Student> s = manager.listStudentsInCourse(0);
 		});
 		
 	}
+	
 	@Test
-	public void code_is_not_in_courses_test() throws MyException {
+	public void code_is_not_in_courses_test() throws InvalidInputArgumentException, 
+					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
-		
 		assertThrows(Exception.class, ()->{
-		List <Student> s = manager.listStudentsInCourse(2);
+			List <Student> s = manager.listStudentsInCourse(2);
 		});
 	}
+	
 	@Test
-	public void code_is_in_course_test() throws MyException {
+	public void code_is_in_course_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+					MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newStudent(1, "Alejandro Carmona", "alejandro@alumnos.upm.es");
 		manager.enrollStudent(1, 1);
@@ -46,15 +53,19 @@ public class ListStudentsInCourseTest {
 		assertEquals(ls.toString(), s.toString());
 		assertEquals(1,s.size());
 	}
+	
 	@Test
-	public void code_is_in_course_list_empty_test() throws MyException {
+	public void code_is_in_course_list_empty_test() throws InvalidInputArgumentException, DuplicatedException, 
+					EmptyListException, NotInTheSystemException {
 		manager.newCourse(1, "programing Project", "Guilleromo");
 		List <Student> s = manager.listStudentsInCourse(1);
 		assertEquals(this.students.toString(), s.toString());
 		assertEquals(0, s.size());
 	}
+	
 	@Test
-	public void code_is_in_courses_lists_not_empty_test() throws MyException{
+	public void code_is_in_courses_lists_not_empty_test() throws InvalidInputArgumentException, DuplicatedException,
+					NotInTheSystemException, AlreadyInTheSystemException, MaxCapacityException, EmptyListException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newCourse(2, "ssoo", "Frosal");
 		manager.newCourse(3, "Pdl", "Juan");
