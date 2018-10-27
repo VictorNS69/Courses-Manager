@@ -188,11 +188,11 @@ public class Manager implements MyInterface{
 	public List<Student> listStudentsInCourse(int code) throws InvalidInputArgumentException, EmptyListException, NotInTheSystemException {
 		Course coursesR = null;
 		List<Student> s;
-		if (code == 0)
-			throw new InvalidInputArgumentException();
-		
 		if (this.courses.isEmpty())
 			throw new EmptyListException();
+		
+		if (code == 0)
+			throw new NotInTheSystemException();
 		
 		for (Course c:this.courses) {
 			if (c.getCode()==code){
