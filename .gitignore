@@ -1,8 +1,7 @@
 target/
-courses-manager/src/target/
-courses-manager/.classpath
-courses-manager/.project
-courses-manager/.settings/*
-courses-manager/bin/
+src/target/
+.classpath
+.project
+.settings/*
+bin/
 *Main.java
-courses-manager/backup.txt
