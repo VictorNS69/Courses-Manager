@@ -24,18 +24,24 @@ public class ListStudentsInCourseTest {
 	public void code_is_zero_test() throws InvalidInputArgumentException, 
 					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
-		
-		assertThrows(Exception.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 			List <Student> s = manager.listStudentsInCourse(0);
 		});
-		
+	}
+
+	@Test
+	public void course_empty_test() throws InvalidInputArgumentException, 
+				DuplicatedException{ 
+		assertThrows(EmptyListException.class, () ->{
+			List <Student> s = manager.listStudentsInCourse(0);
+		});
 	}
 	
 	@Test
 	public void code_is_not_in_courses_test() throws InvalidInputArgumentException, 
 					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
-		assertThrows(Exception.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 			List <Student> s = manager.listStudentsInCourse(2);
 		});
 	}

@@ -24,7 +24,6 @@ public class CancelTest {
 			this.manager.cancel(this.students.get(0), this.courses.get(0));
 		});
 	}
-	
 
 	@Test
 	public void cancel_empty_courses_list_test(){
@@ -34,7 +33,6 @@ public class CancelTest {
 		});
 	}
 	
-
 	@Test
 	public void cancel_null_student_test() {
 		assertThrows(Exception.class, ()->{
@@ -75,7 +73,6 @@ public class CancelTest {
 		assertEquals(1,this.courses.get(0).getStudents().size());
 	}
 	
-
 	@Test
 	public void cancel_ok_3_test() throws NotInTheSystemException, AlreadyInTheSystemException,
 				MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException {

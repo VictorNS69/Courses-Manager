@@ -42,7 +42,7 @@ public class EnrollStudentTest {
 	    	  manager.enrollStudent(52, 1);
 	        });
 	}
-	
+
 	@Test
 	public void enroll_student_ok_1_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
 						MaxCapacityException, InvalidInputArgumentException, DuplicatedException {

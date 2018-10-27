@@ -47,12 +47,24 @@ public class NewStudentTest{
       assertEquals (s2.toString(), this.students.get(1).toString());
   }
   
+  @Test
   public void new_student_ok_not_empty_list_3_test() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.newStudent(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(2, this.students.size());
       Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       Student s2 = new Student(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      assertEquals (s2.toString(), this.students.get(0).toString());
+      assertEquals (s1.toString(), this.students.get(1).toString());
+  }
+  
+  @Test
+  public void new_student_ok_not_empty_list_4_test() throws DuplicatedException, InvalidInputArgumentException{
+      manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      manager.newStudent(155555, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      assertEquals(2, this.students.size());
+      Student s1 = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
+      Student s2 = new Student(155555, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals (s2.toString(), this.students.get(1).toString());
       assertEquals (s1.toString(), this.students.get(0).toString());
   }
