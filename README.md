@@ -70,7 +70,7 @@ The **list of all courses**, sorted by their code, can be obtained.
 ### Copyright:
 This exercise was proposed in the 2018/2019 course of the **_Programming Project_** subject. All rights reserved for authors and the teacher **_Guillermo Roman_**.
 
-[Escuela Técnica SUperior de Ingenieros Informáticos](http://www.etsiinf.upm.es/)
+[Escuela Técnica Superior de Ingenieros Informáticos](http://www.etsiinf.upm.es/)
 
 [Universidad Politécnica de Madrid] (http://www.upm.es/)
 
