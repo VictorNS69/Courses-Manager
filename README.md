@@ -1,9 +1,88 @@
-VICTOR NIEVES SANCHEZ
+# Courses Manager
 
-ALEJANDRO CARMONA AYLLON
+The goal of this project is the development of a Java program to manage the students that are enrolled in the different courses offered by the university.
 
-*NOTA:* Por fallo mio, no me dí cuenta de configurar la cuenta de mi ordenador para que los "push" saliesen con mi correo de la universidad, en lugar de con mi correo personal de gmail.
+### Authors:
+- [Victor Nieves Sanchez](https://twitter.com/VictorNS69)
 
-Por si acaso, que conste que el correo "vnievess@gmail.com" es mi cuenta personal de Gmail.
+- [Alejandro Carmona Ayllon](https://twitter.com/alejandro_C_A)
+
+### Description of the methods:
+A **new course** can be registered. The information associated to a course is its code, its name and its coordinator.
+
+A **new student** can be registered. The information associated to a student is its identification
+number, its name and its email address. 
+
+The system can **enroll a student** in a course, by using the identification number of the student
+and the course code. 
+
+Given a course code, the system must return the **list of matriculated students**, returning its
+identification number, name and surname. 
+
+The student can **cancel** its enrollment in a course.
+
+A course can be **restarted** and this operation must remove all students matriculated in the course.
+
+The **list of all users registered** in the system, including its name, email and identification
+number, can be obtained. 
+
+The **list of all courses**, sorted by their code, can be obtained.
+
+### Structure of the project:
+	├── pom.xml
+	├── PProject_TDDAssignment.pdf
+	├── README.md
+	├── src
+	│   ├── main
+	│   │   └── java
+	│   │       └── es
+	│   │           └── upm
+	│   │               └── pproject
+	│   │                   └── tdd
+	│   │                       ├── Course.java
+	│   │                       ├── exceptions
+	│   │                       │   ├── AlreadyInTheSystemException.java
+	│   │                       │   ├── DuplicatedException.java
+	│   │                       │   ├── EmptyListException.java
+	│   │                       │   ├── InvalidInputArgumentException.java
+	│   │                       │   ├── MaxCapacityException.java
+	│   │                       │   └── NotInTheSystemException.java
+	│   │                       ├── Manager.java
+	│   │                       ├── MyInterface.java
+	│   │                       └── Student.java
+	│   └── test
+	│       └── java
+	│           └── es
+	│               └── upm
+	│                   └── pproject
+	│                       └── tdd
+	│                           ├── CancelTest.java
+	│                           ├── EnrollStudentTest.java
+	│                           ├── ListCoursesTest.java
+	│                           ├── ListStudentsInCourseTest.java
+	│                           ├── ListUsersTest.java
+	│                           ├── ManagerTest.java
+	│                           ├── NewCourseTest.java
+	│                           ├── NewStudentTest.java
+	│                           └── RestartedTest.java
 
 
+### Copyright:
+This exercise was proposed in the 2018/2019 course of the **_Programming Project_** subject. All rights reserved for authors and the teacher **_Guillermo Roman_**.
+
+[Escuela Técnica SUperior de Ingenieros Informáticos](http://www.etsiinf.upm.es/)
+
+[Universidad Politécnica de Madrid] (http://www.upm.es/)
+
+### Tools Used:
+```
+Java 1.8 (or greater)
+
+GIT
+
+Maven 3.5.4
+
+JUnit 5.20
+
+Sonar 3.3.0
+```  
