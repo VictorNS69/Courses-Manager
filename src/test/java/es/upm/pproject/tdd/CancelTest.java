@@ -19,23 +19,25 @@ public class CancelTest {
 	
 	@Test
 	public void cancel_empty_students_list_test()  {
-		assertThrows(Exception.class, ()->{
+		assertThrows(EmptyListException.class, ()->{
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
-			this.manager.cancel(this.students.get(0), this.courses.get(0));
+			Student s = new Student(1, "Victor", "email@test.com");
+			this.manager.cancel(s, this.courses.get(0));
 		});
 	}
 
 	@Test
 	public void cancel_empty_courses_list_test(){
-		assertThrows(Exception.class, ()->{
+		assertThrows(EmptyListException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
-			this.manager.cancel(this.students.get(0), this.courses.get(0));
+			Course c = new Course (1, "Programming Project", "Guillermo");
+			this.manager.cancel(this.students.get(0), c);
 		});
 	}
 	
 	@Test
 	public void cancel_null_student_test() {
-		assertThrows(Exception.class, ()->{
+		assertThrows(InvalidInputArgumentException.class, ()->{
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
 			this.manager.cancel(null, this.courses.get(0));
 		});
@@ -43,7 +45,7 @@ public class CancelTest {
 	
 	@Test
 	public void cancel_null_course_test() {
-		assertThrows(Exception.class, ()->{
+		assertThrows(InvalidInputArgumentException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.cancel(this.students.get(0), null);
 		});
@@ -102,19 +104,21 @@ public class CancelTest {
 	
 	@Test
 	public void cancel_course_not_in_system_test() {
-		assertThrows(Exception.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
-			this.manager.cancel(this.students.get(0), this.courses.get(2));
+			Course c = new Course (2, "Maths", "Rosa");
+			this.manager.cancel(this.students.get(0), c);
 		});
 	}
 	
 	@Test
 	public void cancel_student_not_in_system_test() {
-		assertThrows(Exception.class, ()->{
+		assertThrows(NotInTheSystemException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
-			this.manager.cancel(this.students.get(2), this.courses.get(1));
+			Student s = new Student (2, "Alex", "email@test.com");
+			this.manager.cancel(s, this.courses.get(0));
 		});
 	}
 }

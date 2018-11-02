@@ -146,14 +146,14 @@ public class Manager implements MyInterface{
 	@Override
 	public void cancel(Student student, Course course) throws InvalidInputArgumentException, EmptyListException, 
 					NotInTheSystemException {
-		if (this.students == null || this.courses == null || student == null || course == null) 
+		if (student == null || course == null) 
 			throw new InvalidInputArgumentException();
 		
 		if (this.students.isEmpty() || this.courses.isEmpty()) 
 			throw new EmptyListException();
 
 		if (this.students.contains(student)) {
-			if (this.courses.contains(course)) {
+			if (this.courses.contains(course)) { 
 				if (this.courses.get(this.courses.indexOf(course)).getStudents().contains(student)) 
 					this.courses.get(this.courses.indexOf(course)).getStudents().remove(student);
 				
