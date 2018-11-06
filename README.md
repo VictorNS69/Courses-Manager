@@ -76,7 +76,9 @@ This exercise was proposed in the 2018/2019 course of the **_Programming Project
 
 ### Tools Used:
 ```
-Java 1.8 (or greater)
+Java 1.8
+
+OpenJDK 8
 
 GIT
 
