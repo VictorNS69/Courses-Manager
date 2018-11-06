@@ -80,7 +80,7 @@ Java 1.8
 
 OpenJDK 8
 
-GIT
+GIT 2.19.1
 
 Maven 3.5.4
 
