@@ -14,14 +14,14 @@ public class ListStudentsInCourseTest {
 	
 	
 	@BeforeEach
-	public void init() throws InvalidInputArgumentException {
+	public void Init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);
 	}
 	
 	@Test
-	public void code_is_zero_test() throws InvalidInputArgumentException, 
+	public void CodeIsZeroTest() throws InvalidInputArgumentException, 
 					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		assertThrows(NotInTheSystemException.class, ()->{
@@ -30,7 +30,7 @@ public class ListStudentsInCourseTest {
 	}
 
 	@Test
-	public void course_empty_test() throws InvalidInputArgumentException, 
+	public void CourseEmptyTest() throws InvalidInputArgumentException, 
 				DuplicatedException{ 
 		assertThrows(EmptyListException.class, () ->{
 			List <Student> s = manager.listStudentsInCourse(0);
@@ -38,7 +38,7 @@ public class ListStudentsInCourseTest {
 	}
 	
 	@Test
-	public void code_is_not_in_courses_test() throws InvalidInputArgumentException, 
+	public void CodeIsNotInCoursesTest() throws InvalidInputArgumentException, 
 					DuplicatedException{ 
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		assertThrows(NotInTheSystemException.class, ()->{
@@ -47,7 +47,7 @@ public class ListStudentsInCourseTest {
 	}
 	
 	@Test
-	public void code_is_in_course_test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+	public void CodeIsInCourseTest() throws NotInTheSystemException, AlreadyInTheSystemException, 
 					MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newStudent(1, "Alejandro Carmona", "alejandro@alumnos.upm.es");
@@ -61,7 +61,7 @@ public class ListStudentsInCourseTest {
 	}
 	
 	@Test
-	public void code_is_in_course_list_empty_test() throws InvalidInputArgumentException, DuplicatedException, 
+	public void CodeIsInCourseListEmptyTest() throws InvalidInputArgumentException, DuplicatedException, 
 					EmptyListException, NotInTheSystemException {
 		manager.newCourse(1, "programing Project", "Guilleromo");
 		List <Student> s = manager.listStudentsInCourse(1);
@@ -70,7 +70,7 @@ public class ListStudentsInCourseTest {
 	}
 	
 	@Test
-	public void code_is_in_courses_lists_not_empty_test() throws InvalidInputArgumentException, DuplicatedException,
+	public void CodeIsInCoursesListsNotEmptyTest() throws InvalidInputArgumentException, DuplicatedException,
 					NotInTheSystemException, AlreadyInTheSystemException, MaxCapacityException, EmptyListException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newCourse(2, "ssoo", "Frosal");

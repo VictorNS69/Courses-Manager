@@ -12,7 +12,7 @@ public class RestartedTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void init() throws InvalidInputArgumentException {
+	private void Init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);

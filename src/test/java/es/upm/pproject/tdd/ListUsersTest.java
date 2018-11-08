@@ -12,21 +12,21 @@ public class ListUsersTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void init() throws InvalidInputArgumentException {
+	private void Init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);
 	}
 	
 	@Test
-	public void list_users_empty_list1_test() {
+	public void ListUsersEmptyList1Test() {
 		List <Student> s = manager.listUsers();
 		assertEquals(this.students.toString(),s.toString());
 		assertEquals(0,s.size());
 	}
 	
 	@Test
-	public void list_users_no_empty_list2_test() throws DuplicatedException, InvalidInputArgumentException {
+	public void ListUsersNoEmptyList2Test() throws DuplicatedException, InvalidInputArgumentException {
 		manager.newStudent(1, "Alejandro Carmona Ayllon", "alejandro@alumnos.upm.es");
 		List <Student> s = manager.listUsers();
 		assertEquals(this.students.toString(),s.toString());
@@ -34,7 +34,7 @@ public class ListUsersTest {
 	}
 	
 	@Test
-	public void list_users_no_empty_list3_test() throws DuplicatedException, InvalidInputArgumentException {
+	public void ListUsersNoEmptyList3Test() throws DuplicatedException, InvalidInputArgumentException {
 		for (int i=1;i<21;i++) {
 			manager.newStudent(i, "alejandro"+i, "alejandro"+1+"@alumnos.upm.es");
 		}

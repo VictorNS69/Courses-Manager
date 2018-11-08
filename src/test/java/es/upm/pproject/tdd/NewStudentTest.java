@@ -11,14 +11,14 @@ public class NewStudentTest{
 	private Manager manager;
 	
 	@BeforeEach
-	private void init() throws InvalidInputArgumentException {
+	private void Init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
   
   @Test
-  public void new_student_ok_empty_list_test() throws DuplicatedException, InvalidInputArgumentException{
+  public void NewStudentOkEmptyListTest() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(1, this.students.size());
       Student s = new Student(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
@@ -26,7 +26,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_ok_not_empty_list_1_test() throws DuplicatedException, InvalidInputArgumentException{
+  public void NewStudentOkNotEmptyList1Test() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.newStudent(200300, "alejandro carmona", "alejandro.carmona.ayllon@alumnos.upm.es");
       assertEquals(2, this.students.size());
@@ -37,7 +37,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_ok_not_empty_list_2_test() throws DuplicatedException, InvalidInputArgumentException{
+  public void NewStudentOkNotEmptyList2Test() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.newStudent(100200, "Xavier Martinez", "ejemplo@alumnos.upm.es");
       assertEquals(2, this.students.size());
@@ -48,7 +48,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_ok_not_empty_list_3_test() throws DuplicatedException, InvalidInputArgumentException{
+  public void NewStudentOkNotEmptyList3Test() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.newStudent(100100, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(2, this.students.size());
@@ -59,7 +59,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_ok_not_empty_list_4_test() throws DuplicatedException, InvalidInputArgumentException{
+  public void NewStudentOkNotEmptyList4Test() throws DuplicatedException, InvalidInputArgumentException{
       manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       manager.newStudent(155555, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
       assertEquals(2, this.students.size());
@@ -70,7 +70,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_duplicated_1_test(){
+  public void NewStudentDuplicated1Test(){
 	  assertThrows(DuplicatedException.class, ()->{
 		  manager.newStudent(1, "a", "test@tst.com");
 		  manager.newStudent(2, "b", "test@tst.com");
@@ -81,7 +81,7 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_duplicated_2_test() {
+  public void NewStudentDuplicated2Test() {
 	  assertThrows(DuplicatedException.class, ()->{
     	  manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
           manager.newStudent(150375, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
@@ -89,42 +89,42 @@ public class NewStudentTest{
   }
   
   @Test
-  public void new_student_blank_id_test() {
+  public void NewStudentBlankIdTest() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(0, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es");
         });
   }
   
   @Test
-  public void new_student_blank_name_test() {
+  public void NewStudentBlankNameTest() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(100, "", "victor.nieves.sanchez@alumnos.upm.es");
         });
   }
   
   @Test
-  public void new_student_blank_email_test() {
+  public void NewStudentBlankEmailTest() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(10, "Victor Nieves", "");
         });
   }
   
   @Test
-  public void new_student_wrong_email_1_test() {
+  public void NewStudentWrongEmail1Test() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(10, "Victor Nieves", "victor.nieves.sanchez.alumnos.upm.es");
         });
   }
   
   @Test
-  public void new_student_wrong_email_2_test() {
+  public void NewStudentWrongEmail2Test() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(111, "Victor Nieves", "victor.nieves.sanchez@alumnos.upm.es.");
         });
   }
   
   @Test
-  public void new_student_wrong_email_3_test() {
+  public void NewStudentWrongEmail3Test() {
 	  assertThrows(InvalidInputArgumentException.class, ()->{
     	  manager.newStudent(111, "Victor Nieves", "victornieves");
         });

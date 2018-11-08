@@ -11,27 +11,27 @@ public class ListCoursesTest{
 	private Manager manager;
 
 	@BeforeEach
-	private void init() throws InvalidInputArgumentException {
+	private void Init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
 
 	@Test
-	public void list_courses_empty_test() {
+	public void ListCoursesEmptyTest() {
 		List <Course> c = manager.listCourses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
 	@Test
-	public void list_courses_ok_1_test() throws InvalidInputArgumentException, DuplicatedException {
+	public void ListCoursesOk1Test() throws InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		List <Course> c = manager.listCourses();
 		assertEquals(this.courses.toString(), c.toString());
 	}
 
 	@Test
-	public void list_courses_ok_2_test() throws InvalidInputArgumentException, DuplicatedException{
+	public void ListCoursesOk2Test() throws InvalidInputArgumentException, DuplicatedException{
 		for (int i=1; i < 30;i++) {
 			manager.newCourse(i, "name", "coordinator");
 		}
