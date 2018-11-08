@@ -11,14 +11,14 @@ public class CancelTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void Init() throws InvalidInputArgumentException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
 	
 	@Test
-	public void CancelEmptyStudentsListTest()  {
+	public void cancelEmptyStudentsListTest()  {
 		assertThrows(EmptyListException.class, ()->{
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
 			Student s = new Student(1, "Victor", "email@test.com");
@@ -27,7 +27,7 @@ public class CancelTest {
 	}
 
 	@Test
-	public void CancelEmptyCoursesListTest(){
+	public void cancelEmptyCoursesListTest(){
 		assertThrows(EmptyListException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			Course c = new Course (1, "Programming Project", "Guillermo");
@@ -36,7 +36,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelNullStudentTest() {
+	public void cancelNullStudentTest() {
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
 			this.manager.cancel(null, this.courses.get(0));
@@ -44,7 +44,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelNullCourseTest() {
+	public void cancelNullCourseTest() {
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.cancel(this.students.get(0), null);
@@ -52,7 +52,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelOk1Test() throws DuplicatedException, InvalidInputArgumentException,
+	public void cancelOk1Test() throws DuplicatedException, InvalidInputArgumentException,
 				NotInTheSystemException, AlreadyInTheSystemException, MaxCapacityException, EmptyListException {
 		this.manager.newStudent(1, "Victor", "email@test.com");
 		this.manager.newCourse(1, "Programming Project", "Guillermo");
@@ -63,7 +63,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelOk2Test() throws NotInTheSystemException, AlreadyInTheSystemException, 
+	public void cancelOk2Test() throws NotInTheSystemException, AlreadyInTheSystemException, 
 				MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException {
 		this.manager.newStudent(1, "Victor", "email@test.com");
 		this.manager.newStudent(2, "Alejandro", "email@test.com");
@@ -76,7 +76,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelOk3Test() throws NotInTheSystemException, AlreadyInTheSystemException,
+	public void cancelOk3Test() throws NotInTheSystemException, AlreadyInTheSystemException,
 				MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException {
 		this.manager.newStudent(1, "Victor", "email@test.com");
 		this.manager.newStudent(2, "Alejandro", "email@test.com");
@@ -95,7 +95,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelStudentNotInCourseTest() {
+	public void cancelStudentNotInCourseTest() {
 		assertThrows(Exception.class, ()->{
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
 			this.manager.cancel(this.students.get(0), this.courses.get(0));
@@ -103,7 +103,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelCourseNotInSystemTest() {
+	public void cancelCourseNotInSystemTest() {
 		assertThrows(NotInTheSystemException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.newCourse(1, "Programming Project", "Guillermo");
@@ -113,7 +113,7 @@ public class CancelTest {
 	}
 	
 	@Test
-	public void CancelStudentNotInSystemTest() {
+	public void cancelStudentNotInSystemTest() {
 		assertThrows(NotInTheSystemException.class, ()->{
 			this.manager.newStudent(1, "Victor", "email@test.com");
 			this.manager.newCourse(1, "Programming Project", "Guillermo");

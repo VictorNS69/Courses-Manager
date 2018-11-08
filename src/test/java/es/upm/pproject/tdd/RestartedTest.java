@@ -12,7 +12,7 @@ public class RestartedTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void Init() throws InvalidInputArgumentException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students,courses);
@@ -20,7 +20,7 @@ public class RestartedTest {
 	}
 	
 	@Test
-	public void CourseNotEnteredTest () throws InvalidInputArgumentException, DuplicatedException {
+	public void courseNotEnteredTest () throws InvalidInputArgumentException, DuplicatedException {
 		manager.newCourse(1, "PP", "Guillermo");
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			manager.restarted(null);
@@ -28,7 +28,7 @@ public class RestartedTest {
 	}
 	
 	@Test
-	public void CourseNotInListTest () throws InvalidInputArgumentException, DuplicatedException {
+	public void courseNotInListTest () throws InvalidInputArgumentException, DuplicatedException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(2, "PP", "Guillermo");
 		assertThrows(NotInTheSystemException.class, ()->{
@@ -37,7 +37,7 @@ public class RestartedTest {
 	}
 	
 	@Test
-	public void CourseListEmptyTest () {
+	public void courseListEmptyTest () {
 		Course c = new Course (1, "PP", "Guillermo");
 		assertThrows(EmptyListException.class, ()->{
 			manager.restarted(c);
@@ -45,7 +45,7 @@ public class RestartedTest {
 	}
 	
 	@Test
-	public void CourseInListAndStudentsListIsEmptyTest () throws InvalidInputArgumentException, DuplicatedException,
+	public void courseInListAndStudentsListIsEmptyTest () throws InvalidInputArgumentException, DuplicatedException,
 					EmptyListException, NotInTheSystemException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(1, "PP", "Guillermo");
@@ -55,7 +55,7 @@ public class RestartedTest {
 		assertEquals(0,this.students.size());
 	}
 	@Test
-	public void CourseInListAndStudentsListNotEmptyTest () throws NotInTheSystemException, AlreadyInTheSystemException, 
+	public void courseInListAndStudentsListNotEmptyTest () throws NotInTheSystemException, AlreadyInTheSystemException, 
 				MaxCapacityException, InvalidInputArgumentException, DuplicatedException, EmptyListException {
 		Course c = new Course (1, "PP", "Guillermo");
 		manager.newCourse(1, "PP", "Guillermo");

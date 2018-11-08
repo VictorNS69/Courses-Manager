@@ -12,21 +12,21 @@ public class ManagerTest {
 	private Manager manager;
 	
 	@BeforeEach
-	private void Init() throws InvalidInputArgumentException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
 
 	@Test
-	public void ManagerNullCourseTest() throws InvalidInputArgumentException{
+	public void managerNullCourseTest() throws InvalidInputArgumentException{
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			this.manager = new Manager(this.students, null);
 		});
 	 }
 	  
 	 @Test
-	 public void ManagerNullStudentTest() throws InvalidInputArgumentException{
+	 public void managerNullStudentTest() throws InvalidInputArgumentException{
 		 assertThrows(InvalidInputArgumentException.class, ()->{
 			 this.manager = new Manager(null, this.courses);
 		 });

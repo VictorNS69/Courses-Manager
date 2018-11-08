@@ -11,14 +11,14 @@ public class NewCourseTest{
 	private Manager manager;
 
 	@BeforeEach
-	private void Init() throws InvalidInputArgumentException {
+	private void init() throws InvalidInputArgumentException {
 		this.students = new ArrayList <Student>();
 		this.courses = new ArrayList <Course>();
 		this.manager = new Manager(students, courses);
 	}
 
 	@Test
-	public void NewCourseOkEmptyList1Test() throws InvalidInputArgumentException, DuplicatedException{
+	public void newCourseOkEmptyList1Test() throws InvalidInputArgumentException, DuplicatedException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		assertEquals(1, this.courses.size());
 		Course c = new Course(1, "Programming Project", "Guillermo");
@@ -26,7 +26,7 @@ public class NewCourseTest{
 	}
 
 	@Test
-	public void NewCourseOkNotEmptyList2Test() throws InvalidInputArgumentException, DuplicatedException{
+	public void newCourseOkNotEmptyList2Test() throws InvalidInputArgumentException, DuplicatedException{
 		manager.newCourse(1, "Programming Project", "Guillermo");
 		manager.newCourse(2, "Math", "Luisa");
 		assertEquals(2, this.courses.size());
@@ -37,7 +37,7 @@ public class NewCourseTest{
 	}
 
 	@Test
-	public void NewCourseOkNotEmptyList3Test() throws InvalidInputArgumentException, DuplicatedException{
+	public void newCourseOkNotEmptyList3Test() throws InvalidInputArgumentException, DuplicatedException{
 		manager.newCourse(2, "Programming Project", "Guillermo");
 		manager.newCourse(1, "Math", "Luisa");
 		assertEquals(2, this.courses.size());
@@ -48,7 +48,7 @@ public class NewCourseTest{
 	}
 
 	@Test
-	public void NewCourseDuplicatedTest() {
+	public void newCourseDuplicatedTest() {
 		assertThrows(DuplicatedException.class, ()->{
 			manager.newCourse(1, "Programming Project", "Guillermo");
 			manager.newCourse(1, "Math", "Luisa");
@@ -56,21 +56,21 @@ public class NewCourseTest{
 	}
 
 	@Test
-	public void NewCourseCodeBlankTest (){
+	public void newCourseCodeBlankTest (){
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			manager.newCourse(0, "Programming Project", "Guillermo");
 		});
 	}
 
 	@Test
-	public void NewCourseNameBlankTest (){
+	public void newCourseNameBlankTest (){
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			manager.newCourse(1 , "", "Guillermo");
 		});
 	}
 
 	@Test
-	public void NewCourseCoordinatorBlankTest (){
+	public void newCourseCoordinatorBlankTest (){
 		assertThrows(InvalidInputArgumentException.class, ()->{
 			manager.newCourse(10, "Programming Project", "");
 		});
