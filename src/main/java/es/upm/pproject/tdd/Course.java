@@ -12,7 +12,7 @@ public class Course{
 		this.code = code;
 		this.name = name;
 		this.coordinator = coordinator;
-		this.students = new ArrayList <Student>();
+		this.students = new ArrayList <>();
 	}
 
 	public int getCode(){
