@@ -68,7 +68,7 @@ The **list of all courses**, sorted by their code, can be obtained.
 
 
 ## How To run tests:
-In the directory where the pom.xml is.
+In the directory where the _pom.xml_ is.
 ```
 $ mvn test
 ```
