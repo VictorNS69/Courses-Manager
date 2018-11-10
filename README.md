@@ -67,24 +67,30 @@ The **list of all courses**, sorted by their code, can be obtained.
 	│                           └── RestartedTest.java
 
 
+## How To run tests:
+In the directory where the pom.xml is.
+```
+$ mvn test
+```
+
+### Tools Used:
+```
+- Java 1.8
+
+- OpenJDK 8
+
+- GIT 2.19.1
+
+- Maven 3.5.4
+
+- JUnit 5.20
+
+- Sonar 3.3.0
+```  
+
 ### Copyright:
 This exercise was proposed in the 2018/2019 course of the **_Programming Project_** subject. All rights reserved for authors and the teacher **_Guillermo Roman_**.
 
 [Escuela Técnica Superior de Ingenieros Informáticos](http://www.etsiinf.upm.es/)
 
 [Universidad Politécnica de Madrid](http://www.upm.es/)
-
-### Tools Used:
-```
-Java 1.8
-
-OpenJDK 8
-
-GIT 2.19.1
-
-Maven 3.5.4
-
-JUnit 5.20
-
-Sonar 3.3.0
-```  
