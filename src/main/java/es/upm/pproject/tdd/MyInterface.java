@@ -44,7 +44,7 @@ public interface MyInterface{
 	 * @throws NotInTheSystemException, AlreadyInTheSystemException, MaxCapacityException, 
 	 * 		InvalidInputArgumentException, DuplicatedException 
 	 */
-	public void enrollStudent(int id, int course_cod) throws NotInTheSystemException, AlreadyInTheSystemException, 
+	public void enrollStudent(int id, int coursCod) throws NotInTheSystemException, AlreadyInTheSystemException, 
 				MaxCapacityException, InvalidInputArgumentException, DuplicatedException ;
 	
 	/** The student can cancel its enrollment in a course. The system must 
