@@ -73,6 +73,12 @@ In the directory where the _pom.xml_ is.
 $ mvn test
 ```
 
+## Note:
+```
+$ mvn verify
+```
+Will not work because there is no user, password and server assigned.
+
 ### Tools Used:
 ```
 - Java 1.8
