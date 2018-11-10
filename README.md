@@ -72,7 +72,7 @@ This exercise was proposed in the 2018/2019 course of the **_Programming Project
 
 [Escuela Técnica Superior de Ingenieros Informáticos](http://www.etsiinf.upm.es/)
 
-[Universidad Politécnica de Madrid] (http://www.upm.es/)
+[Universidad Politécnica de Madrid](http://www.upm.es/)
 
 ### Tools Used:
 ```
