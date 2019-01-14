@@ -29,6 +29,8 @@ number, can be obtained.
 The **list of all courses**, sorted by their code, can be obtained.
 
 ### Structure of the project:
+	├── .gitignore
+	├── LICENSE
 	├── pom.xml
 	├── PProject_TDDAssignment.pdf
 	├── README.md
